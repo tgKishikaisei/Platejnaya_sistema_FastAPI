@@ -84,4 +84,13 @@ def get_all_or_exact_card_db(card_id, user_id):
         return {'status': 1, 'message': all_cards}
 
 
+# проеврка при входе в аккаунт
+def login(phone_number, password):
+    db = next(get_db())
 
+    exact_user_info = db.query(User).filter_by(phone_number=phone_number, password=password).first()
+
+    if exact_user_info:
+        return exact_user_info
+
+    return 'Введен неправильный номер или пароль'
