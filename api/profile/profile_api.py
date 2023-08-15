@@ -38,11 +38,20 @@ async def add_user_card(card_data: CardDent):
 
 # выход данных о ползователя
 @app.get('/api/user-data')
-async def get_user_data(user_id: int):
-    pass
+async def get_user_data(user_id: UserDent):
+    result = user_id
+    print(user_id)
+
+    return {'status': 1, 'message': result}
+
 
 
 #
 @app.get('/api/user-cards')
-async def get_user_cards(user_id: int, card_id: int = 0):
-      pass
+async def get_user_cards(user_id: UserDent, card_id: CardDent):
+      if user_id:
+          result = card_id,user_id
+
+          print(card_id)
+
+          return {'status': 1, 'message': result}

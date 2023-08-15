@@ -15,5 +15,9 @@ async def money_transfer(transfer_data: P2PDent):
 
 # функция получение последных трансакции ползователя
 @app.get('/api/monitoring')
-async def user_payment(user_id: int):
-    pass
+async def user_payment(user_id: P2PDent):
+    result = user_id
+    print(result)
+
+    return {'status': 1, 'message': result}
+
