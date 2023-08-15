@@ -9,7 +9,7 @@ from sqlalchemy.orm import relationship
 class User(Base):
     __tablename__ = 'users'
     id = Column(BigInteger, autoincrement=True, primary_key=True)
-    profile_photot = Column(String)
+    profile_photo = Column(String)
     name = Column(String, nullable=False)
     surname = Column(String, nullable=False)
     phone_number = Column(BigInteger, nullable=False)

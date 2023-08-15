@@ -1,4 +1,4 @@
-from database.models import User,Card, Transactions
+from database.models import Card, Transactions
 from database import get_db
 
 
@@ -9,9 +9,9 @@ def money_transfer_db(card_from, card_to, amount, transaction_date):
     card_from_db = db.query(Card).filter_by(card_from).first()
     card_to_db = db.query(Card).filter_by(card_from).first()
 
-    # proverka yest li eti karti
+    # Проверка есть ли эти карты
     if card_from_db and card_to_db:
-        # proverka dostatochno li deneg
+        # проверка достаточна ли денег
         if card_from_db.card_balance >= amount:
             card_from_db.card_balance -= amount
             card_to_db.card_balance += amount
@@ -23,9 +23,12 @@ def money_transfer_db(card_from, card_to, amount, transaction_date):
 
             db.add(new_transaction)
             db.commit()
+            
             return True
-        return 'не достаточна денег'
-    return 'карты нету'
+
+        return 'Недостаточна средства'
+
+    return 'Ошибка в данных'
 
 
 
