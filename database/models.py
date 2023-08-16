@@ -30,11 +30,11 @@ class Card(Base):
 
     reg_date = Column(DateTime)
 
-    user_fk = relationship(User, Lazy='subquery')
+    user_fk = relationship(User, lazy='subquery')
 
 # Таблица платежей
 class Transactions(Base):
-    tablename = 'user_transactions'
+    __tablename__ = 'user_transactions'
     id = Column(BigInteger, primary_key=True, autoincrement=True)
     card_from = Column(BigInteger, ForeignKey('cards.card_number'))
     amount = Column(Float)
