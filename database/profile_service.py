@@ -33,10 +33,10 @@ def phone_number(phone_number: int):
 
     # Если есть совподения
     if checker:
-        return False
+        return True
 
     # А если нет совподение
-    return True
+    return False
 
 
 # функция добовление карты ползователя

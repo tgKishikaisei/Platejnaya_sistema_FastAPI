@@ -1,6 +1,6 @@
 from main import app
 from api.transfers.transfer_models import P2PDent
-from database.transfer_service import get_card_history, money_transfer_db
+from database.transfer_service import get_card_history
 
 
 # Запрос на перевод денег между картами
